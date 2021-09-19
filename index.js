@@ -78,71 +78,114 @@ inquirer
   },
   {
     type: 'input',
-    name: 'employeeName',
-    message: "What is the Employee's Name?",
+    name: 'engineerName',
+    message: "What is the Engineer's Name?",
   },
   {
     type: 'input',
-    name: 'employeeId',
-    message: "What is the Employees's Employee ID?",
+    name: 'engineerId',
+    message: "What is the Engineer's Employee ID?",
   },
   {
     type: 'input',
-    name: 'employeeEmail',
-    message: "What is the Manager's Email?",
+    name: 'engineerEmail',
+    message: "What is the Engineer's Email?",
   },
   {
-    type: 'list',
-    name: 'engineerIntern',
-    message: "Is this an Engineer or and Intern?",
-    choices: ["Engineer", "Intern", "None"],
-    validate: (value) => {
-        if (value) {
-            return true;
-        } else {
-            return "Value is needed to continue.";
-        }
-    }
-}
+    type: 'input',
+    name: 'internName',
+    message: "What is the Intern's Name?",
+  },
+  {
+    type: 'input',
+    name: 'internId',
+    message: "What is the Intern's Employee ID?",
+  },
+  {
+    type: 'input',
+    name: 'internEmail',
+    message: "What is the Intern's Email?",
+  },
 ])
 
 function manager(){
   inquirer 
     .prompt([
-    {
-      type: 'input',
-      name: 'github',
-      message: "What is the Engineer's GitHub?",
-    },
+      {
+        type: 'input',
+        name: 'managerName',
+        message: "What is the Managers's Name?",
+      },
+      {
+        type: 'input',
+        name: 'ManagerId',
+        message: "What is the Manager's Employee ID?",
+      },
+      {
+        type: 'input',
+        name: 'ManagerEmail',
+        message: "What is the Manager's Email?",
+      },
+      {
+        type: 'input',
+        name: 'officeNumber',
+        message: "What is the Managers's Office Number?",
+      },
   ])
   }
 
 function engineer(){
 inquirer 
   .prompt([
-  {
-    type: 'input',
-    name: 'github',
-    message: "What is the Engineer's GitHub?",
-  },
+    {
+      type: 'input',
+      name: 'engineerName',
+      message: "What is the Engineer's Name?",
+    },
+    {
+      type: 'input',
+      name: 'engineerId',
+      message: "What is the Engineer's Employee ID?",
+    },
+    {
+      type: 'input',
+      name: 'engineerEmail',
+      message: "What is the Engineer's Email?",
+    },
 ])
 }
 
 function intern(){
   inquirer
   .prompt([
-{
-  type: 'list',
-  name: 'Intern',
-  message: "Is there an Intern to add?",
-  choices: ["Intern", "None"],
-  default: 'Intern',
-},
-{
-  type: 'input',
-  name: 'school',
-  message: "What school?"
-},
+    {
+      type: 'input',
+      name: 'internName',
+      message: "What is the Intern's Name?",
+    },
+    {
+      type: 'input',
+      name: 'internId',
+      message: "What is the Intern's Employee ID?",
+    },
+    {
+      type: 'input',
+      name: 'internEmail',
+      message: "What is the Intern's Email?",
+    },
+// {
+//   type: 'list',
+//   name: 'Intern',
+//   message: "Is there an Intern to add?",
+//   choices: ["Intern", "None"],
+//   default: 'Intern',
+// },
+// {
+//   type: 'input',
+//   name: 'school',
+//   message: "What school?",
+//   when: (answers) => answers.Intern === "Intern"
+// },
 ])
 }
 }
