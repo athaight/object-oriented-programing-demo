@@ -2,12 +2,15 @@
 console.clear();
 const inquirer = require('inquirer');
 // const fs = require('fs');
-// const Manager = require("./lib/manager");
-// const Engineer = require("./lib/engineer");
-// const Intern = require("./lib/intern");
+const Manager = require("./lib/manager");
+const Engineer = require("./lib/engineer");
+const Intern = require("./lib/intern");
 // const Employee = require("./lib/employee");
 const Team = require("./lib/team")
 const fullTeam = []
+const managerInfo = []
+const engineerInfo = []
+const internInfo = []
 
 // const generateHTML = (answers) =>
 //   `<!DOCTYPE html>
@@ -179,40 +182,60 @@ function manager(){
         when: (answers) => answers.Intern === "managerGitHub"
       },
   ])
+  .then((answers) => {
+    const manager = new Manager (
+      answers.managerName,
+      answers.managerId,
+      answers.managerEmail,
+      answers.officeNumber,
+      answers.managerGitHib,
+    );
+      managerInfo.push(manager);
+  });
   }
+  
 
 function engineer(){
 inquirer 
   .prompt([
     {
       type: 'input',
-      name: 'engineerName',
+      name: 'name',
       message: "What is the Engineer's Name?",
     },
     {
       type: 'input',
-      name: 'engineerId',
+      name: 'id',
       message: "What is the Engineer's Employee ID?",
     },
     {
       type: 'input',
-      name: 'engineerEmail',
+      name: 'email',
       message: "What is the Engineer's Email?",
     },
     {
       type: 'list',
-      name: 'engineerGitHub',
+      name: 'gitub',
       message: "Is there a GitHub username to add for the Engineer?",
-      choices: ["Intern", "None"],
+      choices: ["Yes.", "None."],
       default: 'Intern',
     },
     {
       type: 'input',
       name: 'EngiGitHub',
       message: "What is the GitHub username?",
-      when: (answers) => answers.Intern === "engineerGitHub"
+      when: (answers) => answers.Intern === "Yes."
     },
 ])
+.then((answers) => {
+  const engineer = new Engineer (
+    answers.name,
+    answers.id,
+    answers.email,
+    answers.github,
+  );
+    engineerInfo.push(engineer);
+});
 }
 
 function intern(){
@@ -220,25 +243,25 @@ function intern(){
   .prompt([
     {
       type: 'input',
-      name: 'internName',
+      name: 'name',
       message: "What is the Intern's Name?",
     },
     {
       type: 'input',
-      name: 'internId',
+      name: 'id',
       message: "What is the Intern's Employee ID?",
     },
     {
       type: 'input',
-      name: 'internEmail',
+      name: 'email',
       message: "What is the Intern's Email?",
     },
     {
       type: 'list',
       name: 'internGitHub',
       message: "Is there a GitHub username to add for the Intern?",
-      choices: ["Intern", "None"],
-      default: 'Intern',
+      choices: ["Yes.", "No."],
+      default: 'Yes.',
     },
     {
       type: 'input',
@@ -261,8 +284,16 @@ function intern(){
 //   when: (answers) => answers.Intern === "Intern"
 // },
 ])
+.then((answers) => {
+  const intern = new Intern (
+    answers.name,
+    answers.id,
+    answers.email,
+    answers.github,
+  );
+    internInfo.push(intern);
+});
 }
-
 
           //  .then((answers) => {
           //   if(answers.engineerIntern === "None"){
