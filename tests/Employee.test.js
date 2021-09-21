@@ -1,8 +1,8 @@
-const employee = require('../lib/employee')
+const employee = require("../lib/employee");
 
-describe('Employee', () => {
-  describe('InitializeJs', () => {
-    test('Initializes Employee object', () => {
+describe("Employee", () => {
+  describe("InitializeJs", () => {
+    test("Initializes Employee object", () => {
       const cb = new employee();
       expect(typeof cb).toBe("object");
     });
@@ -27,7 +27,6 @@ describe('Employee', () => {
       expect(cb.email).toBe(email);
     });
   });
-
 
   describe("getInfo", () => {
     test("Does getName() method get name?", () => {

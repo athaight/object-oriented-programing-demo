@@ -1,6 +1,6 @@
 console.clear();
 const inquirer = require("inquirer");
-const fs = require('fs');
+const fs = require("fs");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
@@ -40,7 +40,6 @@ const internInfo = [];
 //     ${answers.employeeType}
 // `;
 
-
 roleSelect();
 function roleSelect() {
   inquirer
@@ -50,7 +49,7 @@ function roleSelect() {
         name: "role",
         message: "What role would you like to create for?",
         choices: ["Manager", "Engineer", "Intern", "Done"],
-        default: "Engineer",
+        default: "Manager",
       },
     ])
     .then((answers) => {
@@ -65,10 +64,6 @@ function roleSelect() {
       }
     });
 }
-
-// if (roleSelect().choices === 'Manager'){
-//   return manager();
-// }
 
 function manager() {
   inquirer
@@ -185,7 +180,7 @@ function intern() {
       {
         type: "input",
         name: "school",
-        message: "What is the Intern's school name?"
+        message: "What is the Intern's school name?",
       },
       {
         type: "list",
@@ -214,16 +209,18 @@ function intern() {
     });
 }
 
-function done(){
+function done() {
   let employeeInfo = [...managerInfo, ...engineerInfo, ...internInfo];
   for (var i = 0; i < employeeInfo.length; ++i) {
     console.log(employeeInfo);
-    console.log(JSON.stringify(employeeInfo));
+    console.log(employeeInfo.values());
   }
-    fs.writeFile('./dist/index.html', employeeInfo, (err) =>
-    err ? console.log(err) : console.log('Successfully created index.html!'));
+  // TODO ask Tucker about getting this out of the array before push to html.
+  fs.writeFile("./dist/index.html", JSON.stringify(employeeInfo), (err) =>
+    err ? console.log(err) : console.log("Successfully created index.html!")
+  );
 }
-  
-    // } else {
-  //   return console.log("Ya gotta do something man, can't just sit there...")}
-  // };
+
+// } else {
+//   return console.log("Ya gotta do something man, can't just sit there...")}
+// };
