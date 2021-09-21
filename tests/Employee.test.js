@@ -14,7 +14,7 @@ describe('Employee', () => {
     test("Can set role attribute with constructor", () => {
       const role = "Employee";
       const cb = new employee("Andy", role, 23, "andy@gmail.com");
-      expect(cb.role).toBe(role);
+      expect(cb.getRole).toBe(role);
     });
     test("Can set id attribute with constructor", () => {
       const id = 23;
