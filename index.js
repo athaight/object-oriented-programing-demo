@@ -68,18 +68,18 @@ function roleSelect() {
     .prompt([
       {
         type: "list",
-        name: "roleChoice",
+        name: "role",
         message: "What role would you like to create for?",
         choices: ["Manager", "Engineer", "Intern", "Done"],
         default: "Engineer",
       },
     ])
     .then((answers) => {
-      if (answers.roleChoice === "Manager") {
+      if (answers.role === "Manager") {
         return manager();
-      } else if (answers.roleChoice === "Engineer") {
+      } else if (answers.role === "Engineer") {
         return engineer();
-      } else if (answers.roleChoice === "Intern") {
+      } else if (answers.role === "Intern") {
         return intern();
       } else {
         return done();

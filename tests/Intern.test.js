@@ -18,22 +18,22 @@ describe('Intern', () => {
     });
     test("Can set id attribute with constructor", () => {
       const id = 23;
-      const cb = new intern("Billy", "Intern", id, "Intern", "billy@gmail.com", "Trilogy", "athaight");
+      const cb = new intern("Billy", id, "Intern", "billy@gmail.com", "Trilogy", "athaight");
       expect(cb.id).toBe(id);
     });
     test("Can set email attribute with constructor", () => {
       const email = "billy@gmail.com";
-      const cb = new intern("Billy", "Intern", 23, email, "Trilogy", "athaight");
+      const cb = new intern("Billy", "Intern", email, 23, "Trilogy", "athaight");
       expect(cb.email).toBe(email);
     });
     test("Can set school attribute with constructor", () => {
       const school = "Trilogy";
-      const cb = new intern("Billy", "Intern", 23, "billy@gmail.com", school, "athaight");
+      const cb = new intern("Billy", "Intern", 23, school, "billy@gmail.com", "athaight");
       expect(cb.school).toBe(school);
     });
     test("Can set github attribute with constructor", () => {
       const github = "athaight";
-      const cb = new intern("Billy", "Intern", 23, "billy@gmail.com", "Trilogy", github);
+      const cb = new intern("Billy", "Intern", 23, "billy@gmail.com", github, "Trilogy");
       expect(cb.github).toBe(github);
     });
   });
@@ -51,12 +51,12 @@ describe('Intern', () => {
     });
     test("Does getId() method get Id?", () => {
       const id = 23;
-      const cb = new intern("Billy", "Intern", id, "billy@gmail.com", "Trilogy", "athaight");
+      const cb = new intern("Billy", id, "Intern", "billy@gmail.com", "Trilogy", "athaight");
       expect(cb.getId()).toBe(id);
     });
     test("Does getEmail() method get mail?", () => {
       const email = "billy@gmail.com";
-      const cb = new intern("Billy", "Intern", 23, email, "Trilogy", "athaight");
+      const cb = new intern("Billy", "Intern", email, 23, "Trilogy", "athaight");
       expect(cb.getEmail()).toBe(email);
     });
     test("Can set school attribute with constructor", () => {
@@ -66,7 +66,7 @@ describe('Intern', () => {
     });
     test("Does getGitHub() method get GitHub username?", () => {
       const github = "athaight";
-      const cb = new intern("Billy", "Intern", 23, "billy@gmail.com", "Trilogy", github);
+      const cb = new intern("Billy", "Intern", 23, "billy@gmail.com", github, "Trilogy");
       expect(cb.getGitHub()).toBe(github);
     });
   });

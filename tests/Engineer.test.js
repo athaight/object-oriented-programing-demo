@@ -18,17 +18,17 @@ describe('Engineer', () => {
     });
     test("Can set id attribute with constructor", () => {
       const id = 23;
-      const cb = new engineer("Andy", "Engineer", id, "andy@gmail.com", "athaight");
+      const cb = new engineer("Andy", id, "Engineer", "andy@gmail.com", "athaight");
       expect(cb.id).toBe(id);
     });
     test("Can set email attribute with constructor", () => {
       const email = "andy@gmail.com";
-      const cb = new engineer("Andy", "Engineer", 23, email, "athaight");
+      const cb = new engineer("Andy", "Engineer", email, 23, "athaight");
       expect(cb.email).toBe(email);
     });
     test("Can set github attribute with constructor", () => {
       const github = "athaight";
-      const cb = new engineer("Andy", "Engineer", 23, "andy@gmail.com", github);
+      const cb = new engineer("Andy", "Engineer", 23, github, "andy@gmail.com");
       expect(cb.github).toBe(github);
     });
   });
@@ -47,17 +47,17 @@ describe('Engineer', () => {
     });
     test("Does getId() method get Id?", () => {
       const id = 23;
-      const cb = new engineer("Andy", "Engineer", id, "andy@gmail.com", "athaight");
+      const cb = new engineer("Andy", id, "Engineer", "andy@gmail.com", "athaight");
       expect(cb.getId()).toBe(id);
     });
     test("Does getEmail() method get mail?", () => {
       const email = "Andy@gmail.com";
-      const cb = new engineer("Andy", "Engineer", 23, email, "athaight");
+      const cb = new engineer("Andy", "Engineer", email, 23, "athaight");
       expect(cb.getEmail()).toBe(email);
     });
     test("Does getGitHub() method get GitHub username?", () => {
       const github = "athaight"; 
-      const cb = new engineer("Andy", "Engineer", 23, "andy@gmail.com", github);
+      const cb = new engineer("Andy", "Engineer", 23, github, "andy@gmail.com");
       expect(cb.getGitHub()).toBe(github);
     });
   });
