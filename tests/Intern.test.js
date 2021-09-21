@@ -26,8 +26,13 @@ describe('Intern', () => {
       const cb = new intern("Andy", "Intern", 23, email, "Trilogy", "athaight");
       expect(cb.email).toBe(email);
     });
-    test("Can set roomNumber attribute with constructor", () => {
-      const github = 555;
+    test("Can set school attribute with constructor", () => {
+      const school = "Trilogy";
+      const cb = new intern("Andy", "Intern", 23, "andy@gmail.com", school, "athaight");
+      expect(cb.school).toBe(school);
+    });
+    test("Can set github attribute with constructor", () => {
+      const github = "athaight";
       const cb = new intern("Andy", "Intern", 23, "andy@gmail.com", "Trilogy", github);
       expect(cb.github).toBe(github);
     });
@@ -54,7 +59,13 @@ describe('Intern', () => {
       const cb = new intern("Andy", "Intern", 23, email, "Trilogy", "athaight");
       expect(cb.getEmail()).toBe(getEmail);
     });
+    test("Can set school attribute with constructor", () => {
+      const school = "Trilogy";
+      const cb = new intern("Andy", "Intern", 23, "andy@gmail.com", school, "athaight");
+      expect(cb.school).toBe(school);
+    });
     test("Does getGitHub() method get GitHub username?", () => {
+      const github = "athaight";
       const cb = new intern("Andy", "Intern", 23, "andy@gmail.com", "Trilogy", github);
       expect(cb.getGitHub()).toBe(getGitHub);
     });
