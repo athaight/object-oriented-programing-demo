@@ -1,0 +1,29 @@
+{
+  "name": "object-oriented-programing-demo",
+  "version": "1.0.0",
+  "description": "<h1>object-oriented-programing-demo</h1> <p>**assignment as part of coding bootcamp**</p> <p>Contributions are Welcome</p>",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "tests"
+  },
+  "dependencies": {
+    "inquirer": "^8.1.5",
+    "jest": "^27.2.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/athaight/object-oriented-programing-demo.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/athaight/object-oriented-programing-demo/issues"
+  },
+  "homepage": "https://github.com/athaight/object-oriented-programing-demo#readme"
+}

@@ -130,11 +130,11 @@ function manager() {
     ])
     .then((answers) => {
       const manager = new Manager(
-        answers.managerName,
-        answers.managerId,
-        answers.managerEmail,
+        answers.name,
+        answers.id,
+        answers.email,
         answers.officeNumber,
-        answers.ManaGitHub
+        answers.github
       );
       managerInfo.push(manager);
       roleSelect();
@@ -178,7 +178,7 @@ function engineer() {
         answers.name,
         answers.id,
         answers.email,
-        answers.engiGitHub
+        answers.github
       );
       engineerInfo.push(engineer);
       roleSelect();
@@ -228,7 +228,7 @@ function intern() {
         answers.id,
         answers.email,
         answers.school,
-        answers.IntGitHub
+        answers.github
       );
       internInfo.push(intern);
       roleSelect();
