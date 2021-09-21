@@ -13,8 +13,8 @@ describe('Intern', () => {
     });
     test("Can set role attribute with constructor", () => {
       const role = "Intern";
-      const cb = new intern("Billy", role, 23, "billy@gmail.com", "Trilogy", "athaight");
-      expect(cb.role).toBe(role);
+      const cb = new intern(role, "Billy", 23, "billy@gmail.com", "Trilogy", "athaight");
+      expect(cb.getRole()).toBe(role);
     });
     test("Can set id attribute with constructor", () => {
       const id = 23;
@@ -46,6 +46,7 @@ describe('Intern', () => {
       expect(cb.getName()).toBe(name);
     });
     test("Does getRole() method get role?", () => {
+      const role = "Intern";
       const cb = new intern("Billy", role, 23, "billy@gmail.com", "Trilogy", "athaight");
       expect(cb.getRole()).toBe(role);
     });
@@ -61,8 +62,8 @@ describe('Intern', () => {
     });
     test("Can set school attribute with constructor", () => {
       const school = "Trilogy";
-      const cb = new intern("Billy", "Intern", 23, "billy@gmail.com", school, "athaight");
-      expect(cb.getSchool).toBe(school);
+      const cb = new intern("Billy", "Intern", 23, school, "billy@gmail.com", "athaight");
+      expect(cb.school).toBe(school);
     });
     test("Does getGitHub() method get GitHub username?", () => {
       const github = "athaight";
