@@ -55,7 +55,7 @@ describe('Intern', () => {
       expect(cb.getEmail()).toBe(getEmail);
     });
     test("Does getGitHub() method get GitHub username?", () => {
-      const cb = new intern("Andy", "Intern", 23, "andy@gmail.com", "Trilogy", "athaight");
+      const cb = new intern("Andy", "Intern", 23, "andy@gmail.com", "Trilogy", github);
       expect(cb.getGitHub()).toBe(getGitHub);
     });
   });
