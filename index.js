@@ -211,16 +211,16 @@ function intern() {
 
 function done() {
   let employeeInfo = [...managerInfo, ...engineerInfo, ...internInfo];
-  for (var i = 0; i < employeeInfo.length; ++i) {
-    console.log(employeeInfo);
-    console.log(employeeInfo.values());
-  }
-  // TODO ask Tucker about getting this out of the array before push to html.
-  fs.writeFile("./dist/index.html", JSON.stringify(employeeInfo), (err) =>
-    err ? console.log(err) : console.log("Successfully created index.html!")
+  employeeInfo.forEach(element => console.log(element)
   );
+  // for (var i = 0; i < employeeInfo.length; ++i) {
+  // console.log(employeeInfo.values());
+  // }
+  // TODO ask Tucker about getting this out of the array before push to html.
+  // fs.writeFile("./dist/index.html", JSON.stringify(employeeInfo.values()), (err) =>
+  // err ? console.log(err) : console.log("Successfully created index.html!")
+  // );
 }
 
-// } else {
-//   return console.log("Ya gotta do something man, can't just sit there...")}
-// };
+// console.log("Ya gotta do something man, can't just sit there...")}
+
