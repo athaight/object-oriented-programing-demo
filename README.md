@@ -2,17 +2,21 @@
 <p>**assignment as part of coding bootcamp**</p>
 <p>Contributions are Welcome</p>
 
-## Installation Instructions
+## Description
 Application to help find and read a team directory, or view data on Employees.
-Employee directory with Names, Titles, Employee IDs, E-mail addresses, and other information based on the position.
-Employee Keys are Manager, Engineer, 
+Employee Keys are Manager, Engineer, and Intern.
+Employee directory with values for Name, Title, Employee IDs E-Mail Address, and GitHub usernames for each employee as well as
+values of Office Number for the Manager and School for the Intern keys.
+Information is saved to an .html file which can be viewed in the browser and is styled simplistically with Bootstrap and which displays the employee's information
+contained to a card displaied on the page.
 
+## Installation Instructions
 After you clone down your repo, you will need to install Node.js in your environment. This should be easily achieved with:
 
 ###
 Clone the repo:
 ```
-git@github.com:athaight/object-oriented-programing-demo.git
+git clone git@github.com:athaight/object-oriented-programing-demo.git
 ```
 ###
 Install npm:
