@@ -4,41 +4,8 @@ const fs = require("fs");
 const Manager = require("./lib/manager");
 const Engineer = require("./lib/engineer");
 const Intern = require("./lib/intern");
-const managerInfo = [];
-const engineerInfo = [];
-const internInfo = [];
-
-// Team idea (reconsidering, but keeping in case, will remove later if not needed)
-// const Team = require("./lib/team")
-// const fullTeam = []
-
-//   `<!DOCTYPE html>
-// <html lang="en">
-// <head>
-//   <meta charset="UTF-8">
-//   <meta http-equiv="X-UA-Compatible" content="ie=edge">
-//   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-//   <title>Document</title>
-// </head>
-// <body>
-//   <div class="jumbotron jumbotron-fluid">
-//   <div class="container">
-//     <h1 class="display-4">Hi! My name is ${answers.name}</h1>
-//     <p class="lead">I am from ${answers.location}.</p>
-//     <h3>Example heading <span class="badge badge-secondary">Contact Me</span></h3>
-//     <ul class="list-group">
-//       <li class="list-group-item">My GitHub username is ${answers.github}</li>
-//       <li class="list-group-item">LinkedIn: ${answers.linkedin}</li>
-//     </ul>
-//   </div>
-// </div>
-// </body>
-// </html>
-// `;
-// }
-// const generateEmployee = (answers) => `
-//     ${answers.employeeType}
-// `;
+const generateHTML = require("./dist/generatedHTML")
+const employees = [];
 
 roleSelect();
 function roleSelect() {
@@ -64,6 +31,7 @@ function roleSelect() {
       }
     });
 }
+
 
 function manager() {
   inquirer
@@ -103,14 +71,14 @@ function manager() {
       },
     ])
     .then((answers) => {
-      const manager = new Manager(
+      const employee = new Manager(
         answers.name,
         answers.id,
         answers.email,
         answers.officeNumber,
         answers.github
       );
-      managerInfo.push(manager);
+      employees.push(employee);
       roleSelect();
     });
 }
@@ -148,13 +116,13 @@ function engineer() {
       },
     ])
     .then((answers) => {
-      const engineer = new Engineer(
+      const employee = new Engineer(
         answers.name,
         answers.id,
         answers.email,
         answers.github
       );
-      engineerInfo.push(engineer);
+      employees.push(employee);
       roleSelect();
     });
 }
@@ -197,30 +165,21 @@ function intern() {
       },
     ])
     .then((answers) => {
-      const intern = new Intern(
+      const employee = new Intern(
         answers.name,
         answers.id,
         answers.email,
         answers.school,
         answers.github
       );
-      internInfo.push(intern);
+      employees.push(employee);
       roleSelect();
     });
 }
 
 function done() {
-  let employeeInfo = [...managerInfo, ...engineerInfo, ...internInfo];
-  employeeInfo.forEach(element => console.log(element)
+  const HTMLoutput = generateHTML(employees)
+ fs.writeFile("./dist/index.html", HTMLoutput, (err) =>
+  err ? console.log(err) : console.log("Successfully created index.html!")
   );
-  // for (var i = 0; i < employeeInfo.length; ++i) {
-  // console.log(employeeInfo.values());
-  // }
-  // TODO ask Tucker about getting this out of the array before push to html.
-  // fs.writeFile("./dist/index.html", JSON.stringify(employeeInfo.values()), (err) =>
-  // err ? console.log(err) : console.log("Successfully created index.html!")
-  // );
 }
-
-// console.log("Ya gotta do something man, can't just sit there...")}
-
